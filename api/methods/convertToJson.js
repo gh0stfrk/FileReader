@@ -8,10 +8,10 @@ const results = []
  * @param {Buffer} fileBuffer 
  * @returns {Promise}
  */
-const convertToJson = (fileBuffer) => {
+const convertToJson = (fileBuffer, options) => {
     return new Promise((resolve, reject) => {
         const readable = Readable.from(fileBuffer)
-        readable.pipe(csvParser())
+        readable.pipe(csvParser(options))
             .on('data', (data) => results.push(data))
             .on('end', () => resolve(results))
             .on('error', (error) => reject(error))

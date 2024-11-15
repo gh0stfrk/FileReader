@@ -3,6 +3,9 @@ const CSVFileProcessor = require('./api/FileProcessor')
 
 
 const csvFile = fs.readFileSync('files/sample_data.csv')
+const options = {
+    
+}
 // console.log(csvFile)
 
 const FileProcessor = new CSVFileProcessor()
